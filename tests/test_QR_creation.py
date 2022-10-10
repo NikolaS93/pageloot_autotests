@@ -9,12 +9,11 @@ class TestQRCreation(unittest.TestCase):
 
     driver = None
 
-    @classmethod
-    def setUpClass(cls):
-        cls.driver = WebApp.start()
-        cls.LoginPage = LoginPage(cls.driver)
-        cls.DashboardPage = DashboardPage(cls.driver)
-        cls.CreateQRCode = CreateQRCode(cls.driver)
+    def setUp(self):
+        self.driver = WebApp.start()
+        self.LoginPage = LoginPage(self.driver)
+        self.DashboardPage = DashboardPage(self.driver)
+        self.CreateQRCode = CreateQRCode(self.driver)
 
     def test_qr_website_creation(self):
         self.LoginPage.login(email="nikola.stankovic@live.com", password="Test@123")
@@ -31,6 +30,5 @@ class TestQRCreation(unittest.TestCase):
         self.CreateQRCode.create_website_qr_code()
         self.CreateQRCode.verify_type_validation()
 
-    @classmethod
-    def tearDownClass(cls):
+    def tearDown(self):
         WebApp.quit()

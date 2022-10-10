@@ -1,3 +1,4 @@
+import time
 from Pageloot.base.basepage import BasePage
 
 
@@ -5,7 +6,7 @@ dynamic_qr_website = '//div[contains(text(),"Website")]'
 qr_name = '//input[@formcontrolname="name"]'
 qr_link = '//input[@data-placeholder="https://pageloot.com/"]'
 next_button = '//span[contains(text(),"Next")]'
-shortlink = 'qr-shortlink'
+shortlink = '//input[@id="qr-shortlink"]'
 preview_qr_image = '//div[@class="preview-qr__view-container"]'
 save_button = '//span[contains(text(),"Save")]'
 name_error_message = '//mat-error[contains(text()," You must include a name ")]'
@@ -18,8 +19,9 @@ class CreateQRCode(BasePage):
     def __init__(self, driver):
         super().__init__(driver)
 
-    def create_website_qr_code(self, ):
+    def create_website_qr_code(self):
         """Clicks Website QR code"""
+        time.sleep(1)
         self.wait_to_be_clickable_by_xpath(dynamic_qr_website).click()
 
     def enter_qr_code_content(self, name, link):

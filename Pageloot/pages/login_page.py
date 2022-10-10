@@ -15,12 +15,8 @@ class LoginPage(BasePage):
 
     def login(self, email, password):
         """Login and verify dashboard presence to assert that is logged in"""
-
         self.wait_to_be_clickable_by_id(email_input).send_keys(email)
         self.wait_to_be_clickable_by_id(password_input).send_keys(password)
         self.wait_to_be_clickable_by_xpath(log_in_button).click()
-
-        # Sometimes it gives to resolve CAPTCHA, so this is a time to manually be solved
-        time.sleep(10)
 
         self.is_element_displayed(dashboard)

@@ -21,8 +21,5 @@ class BasePage:
         return element
 
     def is_element_displayed(self, element):
-        self.driver.find_element(By.XPATH, element).is_displayed()
-
-
-
+        self.wait.until(EC.visibility_of_element_located((By.XPATH, element))).is_displayed()
 

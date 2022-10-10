@@ -1,5 +1,6 @@
 # Pageloot Autotests 
 
+### Language: Python v3.6
 
 Install dependencies
 =====================
