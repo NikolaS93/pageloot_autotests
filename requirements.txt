@@ -1,0 +1,6 @@
+pytest
+selenium
+ipython
+openpyxl
+nose
+urllib3==1.22
